@@ -139,12 +139,16 @@ function deleteNote(index){
 
 let search = document.getElementById('searchTxt');
 search.addEventListener('input', function (e) {
+   
     let inputval = search.value.toLowerCase();
 
-    let noteCards = document.getElementsByClassName("noteCard");
-    Array.from(noteCards).forEach(function (elements) {
-        let cardTxt = elements.getElementsByTagName("p")[0].innerText;
-        cardTxt.toLowerCase();
+      let noteCards = document.getElementsByClassName("noteCard");
+       Array.from(noteCards).forEach(function (elements) {
+        let cardTxt = elements.getElementsByClassName('card-title')[0].innerText;
+   
+        cardTxt=cardTxt.toLowerCase();
+        console.log(cardTxt);
+
         if (cardTxt.includes(inputval)) {
             elements.style.display = "block";
         }
